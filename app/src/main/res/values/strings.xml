@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">booksapplication</string>
+    <string name="book_details_button_like">like</string>
+    <string name="book_details_button_unlike">Unlike</string>
+    <string name="book_details_text_view_likes">Likes</string>
+    <string name="book_details_text_view_index">Index</string>
+    <string name="book_details_text_view_name">Name</string>
+
+    <string name="book_item_text_view_index">Index: %s</string>
+    <string name="book_item_text_view_name">Name: %s</string>
 </resources>
