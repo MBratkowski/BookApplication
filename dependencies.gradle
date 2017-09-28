@@ -7,8 +7,7 @@ ext {
             targetSdkVersion  : 26,
     ]
     build = [
-            gradle      : "3.0.0-beta6",
-            playServices: "3.1.0"
+            gradle: "3.0.0-beta6"
     ]
 
     buildPlugins = [
@@ -23,6 +22,7 @@ ext {
     def versionRxAndroid = '2.0.1'
     def versionDagger = '2.11'
     def versionConstraint = '1.0.2'
+    def versionRetrofit = '2.3.0'
 
     def libs = [
             appCompat          : [group: 'com.android.support', name: 'appcompat-v7', version: androidSupportLibs],
@@ -33,7 +33,8 @@ ext {
             javax              : [group: 'javax.inject', name: 'javax.inject', version: '1'],
             daggerCompiler     : [group: 'com.google.dagger', name: 'dagger-compiler', version: versionDagger],
             dataBindingCompiler: [group: 'com.android.databinding', name: 'compiler', version: build.gradle],
-            design             : [group: 'com.android.support', name: 'design', version: androidSupportLibs]
+            design             : [group: 'com.android.support', name: 'design', version: androidSupportLibs],
+            retrofit           : [group: 'com.squareup.retrofit2', name: 'retrofit', version: versionRetrofit]
     ]
 
     def testLibs = [
@@ -48,13 +49,12 @@ ext {
     applicationModuleDependencies = [
             [configuration: "implementation", dependency: libs.appCompat],
             [configuration: "implementation", dependency: libs.dagger],
+            [configuration: "annotationProcessor", dependency: libs.daggerCompiler],
             [configuration: "implementation", dependency: libs.constraintLayout],
             [configuration: "implementation", dependency: libs.design],
-            [configuration: "kapt", dependency: libs.daggerCompiler],
-            [configuration: "kapt", dependency: libs.dataBindingCompiler],
+            [configuration: "implementation", dependency: libs.retrofit],
             [configuration: "testImplementation", dependency: testLibs.junit],
             [configuration: "androidTestImplementation", dependency: testLibs.espresso,
              options      : supportAnnotationsExclude]
-
     ]
 }
